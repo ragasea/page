@@ -37,8 +37,9 @@
         nav a {
             color: #3498db;
             text-decoration: none;
-            margin: 0 15px;
+            margin: 0 10px;
             font-weight: bold;
+            font-size: clamp(14px, 2.5vw, 16px);
         }
 
         nav a:hover {
@@ -48,16 +49,22 @@
 
         section {
             background-color: white;
-            padding: 20px;
+            padding: 15px;
             margin: 20px 0;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: clamp(24px, 5vw, 32px);
+            margin: 0;
         }
 
         h2 {
             color: #2c3e50;
             border-bottom: 2px solid #3498db;
             padding-bottom: 5px;
+            font-size: clamp(18px, 4vw, 24px);
         }
 
         ul {
@@ -72,11 +79,40 @@
         a {
             color: #3498db;
             text-decoration: none;
+            font-size: clamp(14px, 3vw, 16px);
         }
 
         a:hover {
             text-decoration: underline;
             color: #2980b9;
+        }
+
+        /* Media Queries for Mobile */
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+
+            header {
+                padding: 0.5rem;
+            }
+
+            nav {
+                margin: 10px 0;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            nav a {
+                margin: 5px;
+            }
+
+            section {
+                margin: 10px 0;
+                padding: 10px;
+            }
         }
     </style>
 </head>
