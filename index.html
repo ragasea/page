@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Links</title>
+    <title>Website Links Directory</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -45,13 +45,13 @@
             position: absolute;
             right: 20px;
             top: 20px;
-            padding: 8px 12px;
+            width: 24px;
+            height: 24px;
             background-color: #3498db;
-            color: white;
             border: none;
-            border-radius: 4px;
+            border-radius: 50%;
             cursor: pointer;
-            font-size: 14px;
+            transition: background-color 0.3s;
         }
 
         .theme-toggle:hover {
@@ -154,7 +154,8 @@
             .theme-toggle {
                 right: 10px;
                 top: 10px;
-                padding: 6px 10px;
+                width: 20px;
+                height: 20px;
             }
 
             nav {
@@ -178,13 +179,13 @@
 </head>
 <body>
     <header>
-        <h1>Links</h1>
-        <button class="theme-toggle" onclick="toggleTheme()">Mode</button>
+        <h1>Website Links Directory</h1>
+        <button class="theme-toggle" onclick="toggleTheme()"></button>
         <nav>
             <a href="#main">Main</a>
             <a href="#news">News</a>
             <a href="#tools">Tools</a>
-            <a href="#learn">Learn</a>
+            <a href="#learning">Learning</a>
         </nav>
     </header>
 
@@ -192,7 +193,6 @@
         <section id="main">
             <h2>Main</h2>
             <ul>
-                <li><a href="https://share.note.sx/yb25dwz0#C8vYuJ3mBP0qO7GqjR6HNtdCU8IXvdtgCQrSRAlNvfU" target="_blank">Share ob</a></li>
                 <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
                 <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
                 <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
@@ -217,8 +217,8 @@
             </ul>
         </section>
 
-        <section id="learn">
-            <h2>Learn</h2>
+        <section id="learning">
+            <h2>Learning</h2>
             <ul>
                 <li><a href="https://khanacademy.org" target="_blank">Khan Academy</a></li>
                 <li><a href="https://coursera.org" target="_blank">Coursera</a></li>
@@ -231,25 +231,15 @@
         function toggleTheme() {
             const body = document.body;
             body.classList.toggle('dark');
-            
-            const button = document.querySelector('.theme-toggle');
-            if (body.classList.contains('dark')) {
-                button.textContent = 'Light Mode';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                button.textContent = 'Dark Mode';
-                localStorage.setItem('theme', 'light');
-            }
+            localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
         }
 
-        // Check for saved theme preference or system preference
         window.onload = function() {
             const savedTheme = localStorage.getItem('theme');
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
             
             if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
                 document.body.classList.add('dark');
-                document.querySelector('.theme-toggle').textContent = 'Light Mode';
             }
         }
     </script>
